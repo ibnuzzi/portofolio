@@ -1,0 +1,34 @@
+# Nuxt
+.nuxt
+.nitro
+.cache
+.output
+.data
+dist
+
+# Node
+node_modules
+*.log*
+.npmrc
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Deploy
+.vercel
+.netlify
+
+# Dokumen referensi pribadi (milik orang lain, jangan ikut ter-push)
+/CV_Ekya*.pdf
+
+# Sisa build lama, aman dihapus
+/3001
