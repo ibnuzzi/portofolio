@@ -41,7 +41,8 @@ export const site = {
     { name: 'Inggris', level: 'Dasar, sedang belajar' },
   ],
 
-  // Foto profil (transparan, rasio ±3:4). Ganti file di public/images/.
+  // Foto profil: potongan setengah badan, latar transparan, 900×1200 px (3:4).
+  // Bila file diganti dengan ukuran lain, sesuaikan width/height di ProfileImage.vue.
   photo: '/images/profile.png',
   photoAlt: 'Foto Muhammad Ibnu Zauzi',
 

@@ -46,7 +46,7 @@ export const projects: Project[] = [
       'Surat magang dan rekap logbook bisa diunduh sebagai PDF.',
     ],
     cover: '/images/projects/magangmatch.jpg',
-    coverAlt: 'Sampul proyek MagangMatch',
+    coverAlt: 'Tangkapan layar beranda MagangMatch',
     links: { repo: 'https://github.com/ibnuzzi/PBL_Magang' },
   },
   {
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       'Notifikasi push ke aplikasi siswa/guru lewat Firebase FCM.',
     ],
     cover: '/images/projects/mischool.jpg',
-    coverAlt: 'Sampul proyek Mischool',
+    coverAlt: 'Tangkapan layar beranda Mischool',
     links: { demo: 'https://mischool.id' },
   },
   {

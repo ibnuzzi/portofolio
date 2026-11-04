@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
- * Foto profil dengan fallback monogram.
- * Selama `public/images/profile.png` belum ada, yang tampil adalah plat
- * monogram — bukan kotak "taruh foto di sini" yang terlihat belum jadi.
+ * Foto profil (potongan setengah badan, latar transparan) dengan fallback
+ * monogram. Bila `public/images/profile.png` gagal dimuat, yang tampil adalah
+ * plat monogram — bukan kotak "taruh foto di sini" yang terlihat belum jadi.
  */
 const props = defineProps<{
   src: string
@@ -23,7 +23,7 @@ const isDev = import.meta.dev
     width="900"
     height="1200"
     format="webp"
-    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 420px, 460px"
+    sizes="220px lg:230px"
     :loading="priority ? 'eager' : 'lazy'"
     :preload="priority"
     class="h-auto w-full select-none object-contain"

@@ -150,7 +150,7 @@ const facts = computed(() => [
           </div>
 
           <dl
-            class="hero-fade order-2 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-rule pt-7 sm:grid-cols-4 lg:order-none lg:col-span-2 lg:row-start-2 lg:mt-14"
+            class="hero-fade order-3 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-rule pt-7 sm:grid-cols-4 lg:order-none lg:col-span-2 lg:row-start-2 lg:mt-14"
             style="--line-delay: 820ms"
           >
             <div>
@@ -172,19 +172,31 @@ const facts = computed(() => [
           </dl>
 
           <div
-            class="hero-fade order-3 mx-auto w-full max-w-[230px] lg:order-none lg:col-start-2 lg:row-start-1 lg:mx-0"
+            class="hero-fade order-2 mx-auto w-full max-w-[230px] lg:order-none lg:col-start-2 lg:row-start-1 lg:mx-0"
             style="--line-delay: 420ms"
           >
-            <div class="relative border border-rule bg-page/70 p-2">
-              <ProfileImage
-                :src="site.photo"
-                :alt="site.photoAlt"
-                :initials="site.initials"
-                priority
-              />
+            <!-- Potret setengah badan di atas plat berpetak; kepala keluar dari bingkai. -->
+            <figure class="portrait mx-auto max-w-[220px] lg:max-w-none">
+              <div class="portrait-frame">
+                <div class="portrait-plate" aria-hidden="true" />
 
-              <RoundStamp />
-            </div>
+                <div class="portrait-photo">
+                  <ProfileImage
+                    :src="site.photo"
+                    :alt="site.photoAlt"
+                    :initials="site.initials"
+                    priority
+                  />
+                </div>
+
+                <RoundStamp />
+              </div>
+
+              <figcaption class="portrait-caption">
+                <span>Gbr. 01</span>
+                <span>{{ site.shortName }}, Malang</span>
+              </figcaption>
+            </figure>
 
             <SocialLinks class="mt-8" size="sm" />
           </div>

@@ -435,11 +435,67 @@ body::before {
   transform: translateY(-50%);
 }
 
-/* Stempel di sudut foto */
+/* Potret hero: foto setengah badan di atas plat berpetak. Jas mengisi plat,
+   kepala menembus bingkai atas. */
+.portrait {
+  margin: 0;
+}
+
+.portrait-frame {
+  position: relative;
+}
+
+.portrait-plate {
+  position: absolute;
+  inset: 52% 0 0;
+  border: 1px solid hsl(var(--rule));
+  background-color: hsl(var(--elevated) / 0.75);
+  background-image:
+    linear-gradient(hsl(var(--rule) / 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--rule) / 0.45) 1px, transparent 1px);
+  background-size: 23px 23px;
+  background-position: -1px -1px;
+}
+
+.portrait-photo {
+  position: relative;
+  animation: portrait-rise 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+.portrait-caption {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: hsl(var(--muted));
+}
+
+.portrait-caption span:first-child {
+  color: hsl(var(--pencil));
+}
+
+/* Potret "tercetak" dari bawah ke atas */
+@keyframes portrait-rise {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(5%);
+  }
+  to {
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+
+/* Stempel di sudut kiri bawah plat. Keterangan gambar rata kanan,
+   jadi tidak tertutup stempel. */
 .stamp {
   position: absolute;
-  left: -2.6rem;
-  bottom: -1.5rem;
+  left: -2.8rem;
+  bottom: -1rem;
   width: 6.5rem;
   height: 6.5rem;
   color: hsl(var(--pencil));
@@ -595,7 +651,7 @@ body::before {
   left: 0;
   top: 0;
   z-index: 40;
-  width: 300px;
+  width: 340px; /* ditimpa ProjectLedger sesuai ruang kosong */
   aspect-ratio: 8 / 5;
   overflow: hidden;
   pointer-events: none;
@@ -780,5 +836,9 @@ body::before {
     animation: none;
     opacity: 1;
     transform: rotate(-8deg);
+  }
+
+  .portrait-photo {
+    animation: none;
   }
 }
