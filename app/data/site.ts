@@ -110,7 +110,7 @@ export const contactEndpoint: string = ''
  * Domain produksi tanpa garis miring di akhir, mis. 'https://ibnuzauzi.dev'.
  * Dipakai untuk gambar Open Graph, yang wajib berupa URL absolut.
  */
-export const siteUrl: string = ''
+export const siteUrl: string = 'https://www.ibnuzauzi.my.id'
 
 /** Ubah path publik menjadi URL absolut (tetap relatif selama `siteUrl` kosong) */
 export function absoluteUrl(path: string): string {
