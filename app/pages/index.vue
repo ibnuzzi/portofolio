@@ -93,22 +93,23 @@ const facts = computed(() => [
                 >{{ item.char }}</span>
               </span>
               <span class="hero-line" aria-hidden="true">
-                <span
-                  v-for="item in heroMiddleName"
-                  :key="item.index"
-                  class="hero-char"
-                  :style="{ '--i': item.index }"
-                >{{ item.char }}</span>
-                {{ ' ' }}
+                <!-- Nama tengah yang dicetak miring dan digarisbawahi pensil. -->
                 <em class="accent relative inline-block">
                   <span
-                    v-for="item in heroLastName"
+                    v-for="item in heroMiddleName"
                     :key="item.index"
                     class="hero-char"
                     :style="{ '--i': item.index }"
                   >{{ item.char }}</span>
                   <PencilStroke :delay="950" />
                 </em>
+                {{ ' ' }}
+                <span
+                  v-for="item in heroLastName"
+                  :key="item.index"
+                  class="hero-char"
+                  :style="{ '--i': item.index }"
+                >{{ item.char }}</span>
               </span>
             </h1>
 

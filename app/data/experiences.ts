@@ -13,6 +13,10 @@ export interface TimelineEntry {
   period: string
   description: string
   tags?: string[]
+  /** Logo institusi, tampil di bawah periode. */
+  logo?: string
+  /** Situs resmi institusi; kalau ada, nama institusi jadi tautan. */
+  url?: string
 }
 
 export interface TrackMeta {
@@ -38,6 +42,8 @@ export const timeline: TimelineEntry[] = [
     description:
       'Diperpanjang menjadi kontrak enam bulan setelah magang selesai. Melanjutkan pengembangan platform Mischool: modul absensi, jurnal guru dan staf, pelanggaran siswa, serta notifikasi Firebase Cloud Messaging. Setelah kontrak selesai, saya fokus penuh ke kuliah.',
     tags: ['Laravel', 'MySQL', 'Firebase FCM'],
+    logo: '/images/experience/hummatech-icon.png',
+    url: 'https://hummatech.com/',
   },
   {
     id: 'hummatech-magang',
@@ -48,6 +54,8 @@ export const timeline: TimelineEntry[] = [
     description:
       'Magang satu tahun saat SMK. Mengerjakan aplikasi Kelas Industri dan Mischool memakai Laravel: modul CRUD, migrasi basis data, hak akses per peran, serta ekspor laporan ke Excel dan PDF.',
     tags: ['Laravel', 'Blade', 'Excel Export'],
+    logo: '/images/experience/hummatech-icon.png',
+    url: 'https://hummatech.com/',
   },
 
   // ── Pendidikan ──────────────────────────────────────────────────────────
@@ -60,16 +68,20 @@ export const timeline: TimelineEntry[] = [
     description:
       'Menempuh D-IV Teknik Informatika. Mata kuliah yang relevan: basis data, rekayasa perangkat lunak, serta pemrograman web dan mobile — termasuk Flutter dan PostgreSQL.',
     tags: ['D-IV Informatika'],
+    logo: '/images/education/Logo_Politeknik_Negeri_Malang.png',
+    url: 'https://www.polinema.ac.id/',
   },
   {
     id: 'sekolah',
     track: 'pendidikan',
-    title: 'SMK Negeri 2 Trenggalek',
-    organization: 'Trenggalek, Jawa Timur',
+    title: 'Rekayasa Perangkat Lunak',
+    organization: 'SMK Negeri 2 Trenggalek',
     period: '2021 — 2024',
     description:
-      'Menempuh pendidikan menengah kejuruan, lalu menjalani PKL satu tahun di PT Hummatech Indonesia yang berlanjut menjadi kontrak kerja.',
+      'Menempuh pendidikan menengah kejuruan jurusan Rekayasa Perangkat Lunak, lalu menjalani PKL satu tahun di PT Hummatech Indonesia yang berlanjut menjadi kontrak kerja.',
     tags: ['SMK', 'Trenggalek'],
+    logo: '/images/education/logo-smk-2-trenggalek.png',
+    url: 'https://smkn2trenggalek.sch.id/',
   },
 
   // ── Penghargaan ─────────────────────────────────────────────────────────
