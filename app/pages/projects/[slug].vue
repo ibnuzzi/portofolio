@@ -102,6 +102,8 @@ useSeoMeta({
         />
       </div>
 
+      <ProjectGallery v-if="project.gallery?.length" :shots="project.gallery" />
+
       <div class="mt-14 grid gap-12 lg:grid-cols-[1.6fr_1fr]">
         <div v-anim>
           <h2 class="font-display text-xl sm:text-2xl">Tentang proyek</h2>

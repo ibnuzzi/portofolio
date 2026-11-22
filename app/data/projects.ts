@@ -11,6 +11,20 @@ export interface ProjectLink {
   repo?: string
 }
 
+/** Tangkapan layar tambahan yang ditampilkan sebagai galeri di halaman detail. */
+export interface ProjectShot {
+  /** Path gambar, mis. '/images/projects/kelas-industri/dashboard-admin.jpg' */
+  src: string
+  /** Keterangan gambar, dipakai sebagai alt dan caption */
+  caption: string
+  /**
+   * Ukuran asli gambar (piksel). Dipakai agar bingkai galeri mengikuti rasio
+   * gambar sehingga tangkapan layar tidak terpotong. Bila kosong, dianggap 16:10.
+   */
+  width?: number
+  height?: number
+}
+
 export interface Project {
   slug: string
   title: string
@@ -25,6 +39,8 @@ export interface Project {
   cover: string
   coverAlt: string
   links: ProjectLink
+  /** Tangkapan layar tambahan; opsional. */
+  gallery?: ProjectShot[]
 }
 
 export const projects: Project[] = [
@@ -69,6 +85,26 @@ export const projects: Project[] = [
     cover: '/images/projects/lab-ncs.jpg',
     coverAlt: 'Sampul proyek website Laboratorium Network & Cyber Security',
     links: { repo: 'https://github.com/ibnuzzi/PBL_LAB_NCS_TI-2A' },
+    gallery: [
+      {
+        src: '/images/projects/lab-ncs/landing-page.png',
+        caption: 'Beranda — Pusat Riset Keamanan Jaringan & Siber',
+        width: 1398,
+        height: 705,
+      },
+      {
+        src: '/images/projects/lab-ncs/layanan-page.png',
+        caption: 'Layanan — fasilitas dan sarana prasarana laboratorium',
+        width: 1331,
+        height: 585,
+      },
+      {
+        src: '/images/projects/lab-ncs/profile-page.png',
+        caption: 'Profil — informasi kepala laboratorium',
+        width: 1323,
+        height: 715,
+      },
+    ],
   },
   {
     slug: 'spk-laptop',
@@ -90,6 +126,26 @@ export const projects: Project[] = [
     cover: '/images/projects/spk-laptop.jpg',
     coverAlt: 'Sampul proyek sistem pendukung keputusan pemilihan laptop',
     links: { repo: 'https://github.com/ibnuzzi/SPK_Kelompok8' },
+    gallery: [
+      {
+        src: '/images/projects/spk-laptop/landing-page.png',
+        caption: 'Beranda — pengenalan metode Entropy dan WISP',
+        width: 1917,
+        height: 925,
+      },
+      {
+        src: '/images/projects/spk-laptop/input-page.png',
+        caption: 'Input data — kriteria, alternatif, dan matriks keputusan',
+        width: 1917,
+        height: 921,
+      },
+      {
+        src: '/images/projects/spk-laptop/analisis-page.png',
+        caption: 'Hasil analisis — normalisasi dan perhitungan bertahap',
+        width: 1916,
+        height: 918,
+      },
+    ],
   },
   {
     slug: 'kelas-industri',
@@ -111,6 +167,26 @@ export const projects: Project[] = [
     cover: '/images/projects/kelas-industri.jpg',
     coverAlt: 'Sampul proyek Kelas Industri',
     links: {},
+    gallery: [
+      {
+        src: '/images/projects/kelas-industri/dashboard-admin.jpg',
+        caption: 'Dashboard admin — sekolah, materi, mentor, siswa, dan keuangan',
+        width: 1280,
+        height: 800,
+      },
+      {
+        src: '/images/projects/kelas-industri/dashboard-mentor.jpg',
+        caption: 'Dashboard mentor — kelas, absensi, jurnal mengajar, dan peringkat',
+        width: 1280,
+        height: 800,
+      },
+      {
+        src: '/images/projects/kelas-industri/dashboard-siswa.jpg',
+        caption: 'Dashboard siswa — tugas, tantangan, event, dan pembayaran',
+        width: 1280,
+        height: 800,
+      },
+    ],
   },
   {
     slug: 'mischool',
@@ -134,55 +210,96 @@ export const projects: Project[] = [
     links: { demo: 'https://mischool.id' },
   },
   {
-    slug: 'path-finder',
-    title: 'Path Finder Visualizer',
-    category: 'Algoritma',
+    slug: 'sipjaki',
+    title: 'SIPJAKI',
+    category: 'Web',
     year: '2025',
     summary:
-      'Visualisasi algoritma pencarian jalur (A*, BFS, DFS) di atas grid, untuk memahami perilaku tiap algoritma.',
+      'Sistem Informasi Pembina Jasa Konstruksi Kabupaten Pasuruan: manajemen paket pekerjaan, pelaksana, konsultan, dan monitoring progres.',
     description: [
-      'Alat bantu belajar algoritma pencarian: pengguna menggambar dinding di grid, menentukan titik awal dan tujuan, lalu melihat bagaimana A*, BFS, dan DFS mengeksplorasi ruang pencarian langkah demi langkah.',
-      'Proyek ini saya buat untuk memperkuat pemahaman struktur data dan heuristik. Visualisasi memperlihatkan urutan node yang dikunjungi serta perbedaan jumlah langkah antar algoritma.',
+      'SIPJAKI (Sistem Informasi Pembina Jasa Konstruksi) adalah sistem informasi yang dikelola bersama oleh pembina jasa konstruksi nasional, provinsi, dan kabupaten/kota. Portal ini dipakai Dinas Sumber Daya Air, Bina Marga dan Bina Konstruksi Kabupaten Pasuruan untuk meningkatkan kemudahan akses informasi usaha jasa konstruksi, transparansi, serta memperkuat jaringan bisnis pelaku usaha dalam rantai pasok konstruksi.',
+      'Saya ikut mengerjakan sisi web-nya: halaman publik (profil dinas, layanan, informasi, ruas jalan, peraturan, data jasa konstruksi, dan pelatihan) serta modul manajemen paket pekerjaan untuk mengelola paket, pelaksana, konsultan, dan memantau progres pekerjaan secara real-time.',
     ],
-    tech: ['Python', 'Streamlit', 'NumPy'],
+    tech: ['Laravel', 'MySQL', 'Tailwind CSS', 'Blade'],
     highlights: [
-      'Tiga algoritma dengan visualisasi urutan eksplorasi node.',
-      'Perbandingan jumlah langkah dan waktu antar algoritma.',
-      'Grid interaktif: gambar dinding, pindahkan start/goal.',
+      'Manajemen paket pekerjaan: ruang lingkup, anggaran, jadwal, dan dokumentasi.',
+      'Data pelaksana dan konsultan beserta verifikasi serta penugasan paket.',
+      'Monitoring progres paket, milestone, dan laporan kemajuan secara real-time.',
+      'Pelaporan & dokumentasi: unggah foto, dokumen, dan hasil inspeksi untuk audit.',
     ],
-    cover: '/images/projects/path-finder.jpg',
-    coverAlt: 'Sampul proyek visualisasi algoritma pencarian jalur',
-    links: {},
+    cover: '/images/projects/sipjaki.jpg',
+    coverAlt: 'Sampul proyek SIPJAKI, sistem informasi pembina jasa konstruksi',
+    links: { demo: 'https://sipjaki.pasuruankab.com/' },
+    gallery: [
+      {
+        src: '/images/projects/sipjaki/landing-page.png',
+        caption: 'Beranda — sistem informasi pembina jasa konstruksi',
+        width: 1896,
+        height: 922,
+      },
+      {
+        src: '/images/projects/sipjaki/articles-page.png',
+        caption: 'Informasi — artikel dan berita seputar jasa konstruksi',
+        width: 1891,
+        height: 928,
+      },
+      {
+        src: '/images/projects/sipjaki/organization-structure-page.png',
+        caption: 'Profil — struktur organisasi dinas',
+        width: 1897,
+        height: 922,
+      },
+      {
+        src: '/images/projects/sipjaki/login-page.png',
+        caption: 'Halaman masuk untuk pengguna terdaftar',
+        width: 1917,
+        height: 927,
+      },
+    ],
   },
   {
-    slug: 'analisis-sentimen',
-    title: 'Analisis Sentimen Ulasan',
-    category: 'Machine Learning',
-    year: '2025',
+    slug: 'tracer-study',
+    title: 'Tracer Study SKADA',
+    category: 'Web',
+    year: '2024',
     summary:
-      'Klasifikasi sentimen ulasan produk berbahasa Indonesia dengan TF-IDF dan beberapa model pembanding.',
+      'Studi pelacakan jejak lulusan dan alumni SMK Negeri 2 Penajam Paser Utara: kuesioner alumni, profil lulusan, galeri, berita, dan lowongan kerja.',
     description: [
-      'Eksperimen analisis sentimen pada ulasan produk berbahasa Indonesia. Teks dibersihkan, dinormalisasi, lalu diekstraksi fiturnya dengan TF-IDF sebelum diklasifikasikan.',
-      'Saya membandingkan beberapa model (Naive Bayes, SVM, Logistic Regression) dengan metrik akurasi, precision, recall, dan F1-score, lalu memilih model dengan performa paling seimbang.',
+      'Tracer Study SKADA adalah studi pelacakan jejak lulusan/alumni di SMK Negeri 2 Penajam Paser Utara (SMKN 2 PPU). Website ini dipakai sekolah untuk menjangkau alumni, mengumpulkan umpan balik, dan memetakan sebaran lulusan setelah mereka menyelesaikan pendidikan.',
+      'Saya ikut mengerjakan sisi web-nya saat masih di PT Hummatech Indonesia: halaman publik (beranda, profil, galeri, berita, lowongan kerja, dan daftar perusahaan mitra) serta alur login/register alumni untuk mengisi survei dan memperbarui data diri. Repositori proyek ini sudah bersifat privat di perusahaan, jadi yang bisa saya tampilkan hanya tautan situsnya.',
     ],
-    tech: ['Python', 'Pandas', 'scikit-learn', 'Sastrawi'],
+    tech: ['Laravel', 'MySQL', 'Bootstrap', 'Blade'],
     highlights: [
-      'Praproses teks Indonesia: case folding, slang normalization, stemming.',
-      'Perbandingan tiga model dengan cross-validation.',
-      'Evaluasi memakai confusion matrix dan classification report.',
+      'Survei dan umpan balik alumni sebagai bahan pengembangan kualitas pendidikan.',
+      'Profil lulusan: sebaran kerja, keselarasan kurikulum, dan adaptasi di dunia kerja.',
+      'Alur login/register alumni untuk mengisi dan memperbarui data tracer study.',
+      'Galeri kegiatan, berita, dan daftar lowongan dari perusahaan mitra sekolah.',
     ],
-    cover: '/images/projects/analisis-sentimen.jpg',
-    coverAlt: 'Sampul proyek analisis sentimen ulasan',
-    links: {},
+    cover: '/images/projects/tracer-study.jpg',
+    coverAlt: 'Sampul proyek Tracer Study SMKN 2 Penajam Paser Utara',
+    links: { demo: 'https://tracerstudyskada.com/' },
+    gallery: [
+      {
+        src: '/images/projects/tracer-study/landing-page.png',
+        caption: 'Beranda — sambutan dan navigasi situs tracer study',
+        width: 847,
+        height: 392,
+      },
+      {
+        src: '/images/projects/tracer-study/landing-page2.png',
+        caption: 'Beranda — rekap alumni dan profil sekolah',
+        width: 847,
+        height: 500,
+      },
+    ],
   },
 ]
 
 export const projectCategories: Array<ProjectCategory | 'Semua'> = [
   'Semua',
-  'Web',
-  'Machine Learning',
-  'Algoritma',
-  'Data',
+  ...(['Web', 'Machine Learning', 'Algoritma', 'Data'] as ProjectCategory[]).filter(
+    (category) => projects.some((project) => project.category === category),
+  ),
 ]
 
 /** Ambil satu proyek berdasarkan slug */
